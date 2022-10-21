@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import clear from 'clear'
-import commandConfig from './src/commands'
+// import commandConfig from './src/commands'
 
 /**
  * 总运行入口
@@ -9,7 +9,8 @@ import commandConfig from './src/commands'
  */
 function init(): void {
   clear()
-  commandConfig()
+  // commandConfig()
+  console.log('可以你')
 }
 
 init()

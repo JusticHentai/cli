@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "adm-zip": "^0.5.9",
