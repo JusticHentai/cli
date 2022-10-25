@@ -29,6 +29,7 @@
     "superagent": "^7.1.1"
   },
   "devDependencies": {
+    "@justichentai/types-utils": "^1.0.0",
     "@types/clear": "^0.1.2",
     "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "^8.2.1",
