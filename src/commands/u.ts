@@ -1,4 +1,5 @@
 import CommandOptions from '../types/CommandOptions'
+import gitUpdate from '../utils/git/gitUpdate'
 
 const u: CommandOptions = {
   name: 'u',
@@ -10,8 +11,8 @@ const u: CommandOptions = {
       required: false,
     },
   ],
-  action: (res: any) => {
-    console.log(res)
+  action: async (message: string) => {
+    await gitUpdate(message)
   },
 }
 
