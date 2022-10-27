@@ -11,7 +11,9 @@ const test: CommandOptions = {
       required: false,
     },
   ],
-  action: async (value: string) => {
+  action: async (options: { value: string }) => {
+    const { value } = options
+
     console.log(`当前 debug 目录：${path.resolve()}`)
     console.log(`当前 value：${value}`)
   },
