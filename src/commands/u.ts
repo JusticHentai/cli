@@ -11,7 +11,8 @@ const u: CommandOptions = {
       required: false,
     },
   ],
-  action: async (message: string) => {
+  action: async (options: { message: string }) => {
+    const { message } = options
     await gitUpdate(message)
   },
 }
