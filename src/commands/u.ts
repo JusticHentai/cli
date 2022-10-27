@@ -13,6 +13,7 @@ const u: CommandOptions = {
   ],
   action: async (options: { message: string }) => {
     const { message } = options
+
     await gitUpdate(message)
   },
 }
