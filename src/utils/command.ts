@@ -1,28 +1,5 @@
 import { Command } from 'commander'
-
-export interface AddOptions {
-  name: string // 命令名
-  dec: string // 命令描述
-  args: Argument[]
-  argOptions: ArgumentOptions[]
-}
-
-/**
- * 添加命令 的 参数类型
- */
-export type Argument = {
-  arg: string // 参数名
-  dec: string // 参数描述
-  required: boolean // 参数是否必选
-}
-
-/**
- * 添加命令设置的 选项 类型
- */
-export type ArgumentOptions = {
-  flags: string
-  dec: string
-}
+import CommandOptions from '../types/CommandOptions'
 
 class Commander {
   // 命令实例
@@ -36,8 +13,8 @@ class Commander {
    * 添加命令
    * @param options
    */
-  add<T extends object>(options: AddOptions): Promise<T> {
-    const { name, dec: commandDec, args, argOptions } = options
+  add(options: CommandOptions): Promise<any> {
+    const { name, dec: commandDec, args = [], argOptions = [] } = options
 
     return new Promise((resolve) => {
       let myCommand = new Command(name).description(commandDec)
@@ -76,7 +53,7 @@ class Commander {
           res = { ...res, ...params[i] }
         }
 
-        resolve(res as T)
+        resolve(res)
       })
 
       this.program.addCommand(myCommand)

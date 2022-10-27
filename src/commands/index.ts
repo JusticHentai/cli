@@ -1,18 +1,32 @@
-import { MyFunction } from '@justichentai/types-utils'
+import CommandOptions from '../types/CommandOptions'
 import command from '../utils/command'
 
 /**
  * 注册的命令队列
  */
-export const commandList: MyFunction[] = []
+export const commandList: CommandOptions[] = []
 
 /**
  * 注册命令
  */
 export default function commandConfig() {
-  for (const commandInit of commandList) {
-    commandInit()
+  for (const commandOptions of commandList) {
+    commandInit(commandOptions)
   }
 
   command.init()
+}
+
+/**
+ * 初始化命令
+ * @param commandOptions
+ */
+async function commandInit(commandOptions: CommandOptions) {
+  const { action, ...rest } = commandOptions
+
+  const res = await command.add({
+    ...rest,
+  })
+
+  action && action(res)
 }
