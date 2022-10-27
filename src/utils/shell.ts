@@ -1,7 +1,7 @@
+import { isArray } from '@justichentai/is'
 import { exec, ExecException } from 'child_process'
 import { error as myError, warn as myWarn } from './style/chalk'
 import Loading from './style/loading'
-import { isArray } from '@justichentai/is'
 
 /**
  * 执行单个shell命令

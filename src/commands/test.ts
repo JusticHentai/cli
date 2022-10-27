@@ -1,5 +1,5 @@
-import CommandOptions from '../types/CommandOptions'
 import path from 'path'
+import CommandOptions from '../types/CommandOptions'
 
 const test: CommandOptions = {
   name: 'test',

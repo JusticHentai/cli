@@ -1,7 +1,7 @@
 import CommandOptions from '../types/CommandOptions'
 import command from '../utils/command'
-import u from './u'
 import test from './test'
+import u from './u'
 
 /**
  * 注册的命令队列
