@@ -1,11 +1,12 @@
 import CommandOptions from '../types/CommandOptions'
 import command from '../utils/command'
 import u from './u'
+import test from './test'
 
 /**
  * 注册的命令队列
  */
-export const commandList: CommandOptions[] = [u]
+export const commandList: CommandOptions[] = [u, test]
 
 /**
  * 注册命令

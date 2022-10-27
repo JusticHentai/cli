@@ -13,7 +13,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@justichentai/is": "^1.0.4",
+    "@justichentai/is": "^1.0.5",
     "adm-zip": "^0.5.9",
     "chalk": "^4.1.2",
     "clear": "^0.1.0",
