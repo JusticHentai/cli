@@ -87,7 +87,7 @@ async function setPackageInfo(name: string) {
 
 async function createRepo(name: string) {
   const commands = [
-    `curl -u JusticHentai https://api.github.com/user/repos -d { "name": "${name}" }`,
+    `gh repo create ${name} --public`,
     'git init',
     `git remote add origin git@github.com:JusticHentai/${name}.git`,
     'git branch -M main',
