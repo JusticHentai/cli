@@ -13,6 +13,11 @@ const i: CommandOptions = {
       dec: '项目名',
       required: true,
     },
+    {
+      arg: 'dirname',
+      dec: '放置目录',
+      required: false,
+    },
   ],
   action: async (options: { name: string; dirname: string }) => {
     // 初始化问题
