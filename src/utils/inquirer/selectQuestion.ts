@@ -12,15 +12,7 @@ export interface SelectQuestion {
 // 单个选项的类型
 interface Chose {
   name: string // 单个选项文案
-  value: Result // 单个选项回复的结果
-}
-
-/**
- * 选项提问的结果
- */
-export interface Result {
-  type: number // 哪个模块
-  key: number // 哪个key
+  value: string
 }
 
 /**
@@ -30,7 +22,7 @@ export interface Result {
  */
 export default async function selectQuestionConfig(
   question: SelectQuestion
-): Promise<Result> {
+): Promise<string> {
   const myQuestion = [
     {
       type: 'list',

@@ -2,7 +2,7 @@ import CommandOptions from '../types/CommandOptions'
 import selectQuestionConfig, {
   SelectQuestion,
 } from '../utils/inquirer/selectQuestion'
-import { error } from '../utils/style/chalk'
+import utilsTemplate from '../utils/templates/utilsTemplate'
 
 const i: CommandOptions = {
   name: 'i',
@@ -14,18 +14,15 @@ const i: CommandOptions = {
       required: true,
     },
   ],
-  action: async (options: { name: string }) => {
-    const { name } = options
-
-    if (!name) {
-      error('参数格式不对 应为：hentai i <项目名> [项目放置目录]')
-      process.exit(-1)
-    }
-
+  action: async (options: { name: string; dirname: string }) => {
     // 初始化问题
-    const res = await questionInit()
+    const template = await questionInit()
 
-    console.log(res)
+    // 初始化模板
+    await templateInit({
+      ...options,
+      template,
+    })
   },
 }
 
@@ -35,9 +32,23 @@ async function questionInit() {
   const questions: SelectQuestion = {
     message: ' ♥ 请选择模板 ♥ ',
     choices: [
-      { name: '[1]js工具包(utility-library)', value: { type: 0, key: 0 } },
+      { name: '[1]工具包模板(utils-template)', value: 'utilsTemplate' },
     ],
   }
 
   return await selectQuestionConfig(questions)
+}
+
+async function templateInit(options: {
+  name: string
+  dirname: string
+  template: string
+}) {
+  const templateList: Record<string, any> = {
+    utilsTemplate,
+  }
+
+  const { template, ...rest } = options
+
+  await templateList[template](rest)
 }

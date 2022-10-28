@@ -7,7 +7,7 @@ import Loading from '../style/loading'
  * @param dirname
  * @param data
  */
-export default function writeFile(dirname: string, data: any): Promise<void> {
+export default function write(dirname: string, data: any): Promise<void> {
   return new Promise((resolve) => {
     const loading = new Loading()
     loading.start(`开始写入文件：${dirname}`)
